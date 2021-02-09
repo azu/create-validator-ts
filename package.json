@@ -1,6 +1,6 @@
 {
   "name": "create-ts-validator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create JSON Schema validator from TypeScript.",
   "keywords": [
     "typescript",
@@ -28,7 +28,7 @@
     "test": "test"
   },
   "bin": {
-    "create-ts-validator": "./bin/cmd.js"
+    "create-ts-validator": "bin/cmd.js"
   },
   "files": [
     "bin/",
