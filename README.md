@@ -209,6 +209,16 @@ ${code}
 exports.generator = generator;
 ```
 
+## Ignore generated Code
+
+If you used [Prettier](https://prettier.io/), you should add `*.validator.ts` to `.prettierignore`
+
+```
+*.validator.ts
+```
+
+- [Ignoring Code · Prettier](https://prettier.io/docs/en/ignore.html)
+
 ## Changelog
 
 See [Releases page](https://github.com/azu/create-ts-validator/releases).
