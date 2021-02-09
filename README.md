@@ -54,6 +54,10 @@ You can generate validator code via following command
 
     $ create-ts-validator "src/**/api-types.ts"
 
+Default validator require [ajv](https://github.com/ajv-validator/ajv), and you need to install ajv into your project.
+
+    $ npm install ajv
+
 Structure:
 
 ```
