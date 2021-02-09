@@ -42,7 +42,7 @@
     "prepare": "git config --local core.hooksPath .githook",
     "prepublishOnly": "npm run clean && npm run build",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
-    "test": "mocha \"test/**/*.ts\"",
+    "test": "mocha \"test/**/*.test.ts\"",
     "watch": "tsc -p . --watch"
   },
   "lint-staged": {
