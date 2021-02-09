@@ -27,6 +27,9 @@
     "lib": "lib",
     "test": "test"
   },
+  "bin": {
+    "create-ts-validator": "./bin/cmd.js"
+  },
   "files": [
     "bin/",
     "lib/",
