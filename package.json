@@ -1,6 +1,6 @@
 {
   "name": "create-ts-validator",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Create JSON Schema validator from TypeScript.",
   "keywords": [
     "typescript",
