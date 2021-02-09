@@ -234,3 +234,17 @@ For bugs and feature requests, [please create an issue](https://github.com/azu/c
 ## License
 
 MIT © azu
+
+## Prior art
+
+- [ForbesLindesay/typescript-json-validator](https://github.com/ForbesLindesay/typescript-json-validator)
+
+Differences:
+
+- `create-ts-validator` support multiple types in a single file
+- `create-ts-validator` support more TypeScript that includes Utility types like `Pick<T>`
+    - `typescript-json-validator` uses [YousefED/typescript-json-schema](https://github.com/YousefED/typescript-json-schema)
+    - `create-ts-validator` uses [vega/ts-json-schema-generator](https://github.com/vega/ts-json-schema-generator)
+    - See also [Future of schema generators · Issue #101 · vega/ts-json-schema-generator](https://github.com/vega/ts-json-schema-generator/issues/101)
+- `create-ts-validator` is minimal and support customization of validation code using `--generatorScript`
+

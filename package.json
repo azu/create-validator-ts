@@ -20,9 +20,9 @@
   "license": "MIT",
   "author": "azu",
   "sideEffects": false,
-  "main": "lib/create-ts-validator.js",
-  "module": "module/create-ts-validator.js",
-  "types": "lib/create-ts-validator.d.ts",
+  "main": "lib/index.js",
+  "module": "module/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "test"
