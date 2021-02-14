@@ -44,7 +44,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
         cwd: options.cwd,
         absolute: true
     });
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: defaultCodeGenerator };
+    const { generator } = (await import(options.codeGeneratorScript)) as { generator: CodeGenerator };
     return Promise.all(
         files.map(async (filePath) => {
             const result = await generateValidator({
@@ -79,7 +79,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
 }
 
 export async function createValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: defaultCodeGenerator };
+    const { generator } = (await import(options.codeGeneratorScript)) as { generator: CodeGenerator };
     const files = globby.sync(options.targetGlobs, {
         cwd: options.cwd,
         absolute: true
