@@ -1,5 +1,5 @@
 {
-  "name": "create-ts-validator",
+  "name": "create-validator-ts",
   "version": "0.1.2",
   "description": "Create JSON Schema validator from TypeScript.",
   "keywords": [
@@ -9,13 +9,13 @@
     "runtime",
     "check"
   ],
-  "homepage": "https://github.com/azu/create-ts-validator",
+  "homepage": "https://github.com/azu/create-validator-ts",
   "bugs": {
-    "url": "https://github.com/azu/create-ts-validator/issues"
+    "url": "https://github.com/azu/create-validator-ts/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/create-ts-validator.git"
+    "url": "https://github.com/azu/create-validator-ts.git"
   },
   "license": "MIT",
   "author": "azu",
@@ -28,7 +28,7 @@
     "test": "test"
   },
   "bin": {
-    "create-ts-validator": "bin/cmd.js"
+    "create-validator-ts": "bin/cmd.js"
   },
   "files": [
     "bin/",

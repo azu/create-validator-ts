@@ -5,7 +5,7 @@ import { createValidator, testGeneratedValidator, watchValidator } from "./index
 export const cli = meow(
     `
     Usage
-      $ create-ts-validator [file|glob*]
+      $ create-validator-ts [file|glob*]
  
     Options
       --watch               [Boolean] If set the flag, start watch mode
@@ -16,11 +16,11 @@ export const cli = meow(
       --verbose             [Boolean] If set the flag, show progressing logs
 
     Examples
-      $ create-ts-validator "src/**/api-types.ts"
+      $ create-validator-ts "src/**/api-types.ts"
       # custom tsconfig.json
-      $ create-ts-validator "src/**/api-types.ts" --tsconfigFilePath ./tsconfig.app.json
+      $ create-validator-ts "src/**/api-types.ts" --tsconfigFilePath ./tsconfig.app.json
       # custom validator code
-      $ create-ts-validator "src/**/api-types.ts" --generatorScript ./custom.js
+      $ create-validator-ts "src/**/api-types.ts" --generatorScript ./custom.js
 `,
     {
         flags: {

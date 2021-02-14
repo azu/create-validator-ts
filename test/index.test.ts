@@ -7,7 +7,7 @@ describe("index", function () {
         await createValidator({
             cwd: __dirname,
             targetGlobs: ["./snapshots/valid/api-types.ts"],
-            codeGeneratorScript: path.join(__dirname, "../src/validator-code-generator.ts"),
+            codeGeneratorScript: path.join(__dirname, "../src/default-code-generator.ts"),
             verbose: false,
             tsconfigFilePath: path.join(__dirname, "../tsconfig.json")
         });
@@ -16,7 +16,7 @@ describe("index", function () {
         await testGeneratedValidator({
             cwd: __dirname,
             targetGlobs: ["./snapshots/valid/api-types.ts"],
-            codeGeneratorScript: path.join(__dirname, "../src/validator-code-generator.ts"),
+            codeGeneratorScript: path.join(__dirname, "../src/default-code-generator.ts"),
             verbose: false,
             tsconfigFilePath: path.join(__dirname, "../tsconfig.json")
         });
@@ -26,7 +26,7 @@ describe("index", function () {
             testGeneratedValidator({
                 cwd: __dirname,
                 targetGlobs: ["./snapshots/invalid/api-types.ts"],
-                codeGeneratorScript: path.join(__dirname, "../src/validator-code-generator.ts"),
+                codeGeneratorScript: path.join(__dirname, "../src/default-code-generator.ts"),
                 verbose: false,
                 tsconfigFilePath: path.join(__dirname, "../tsconfig.json")
             })

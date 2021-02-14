@@ -2,10 +2,10 @@ import globWatch from "glob-watcher";
 import _fs from "fs";
 import * as globby from "globby";
 import assert from "assert";
-import { generateValidator } from "./create-ts-validator";
-import { validatorCodeGenerator } from "./validator-code-generator";
+import { generateValidator } from "./create-validator-ts";
+import { defaultCodeGenerator } from "./default-code-generator";
 
-export { GenerateValidatorCodeOptions, validatorCodeGenerator } from "./validator-code-generator";
+export { GenerateValidatorCodeOptions, defaultCodeGenerator } from "./default-code-generator";
 // TODO: Node 14+
 const fs = _fs.promises;
 export type CreateTSValidatorOptions = {
@@ -17,7 +17,7 @@ export type CreateTSValidatorOptions = {
 };
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: validatorCodeGenerator };
+    const { generator } = (await import(options.codeGeneratorScript)) as { generator: defaultCodeGenerator };
     const watcher = globWatch(options.targetGlobs, {
         ignoreInitial: true
     });
@@ -44,7 +44,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
         cwd: options.cwd,
         absolute: true
     });
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: validatorCodeGenerator };
+    const { generator } = (await import(options.codeGeneratorScript)) as { generator: defaultCodeGenerator };
     return Promise.all(
         files.map(async (filePath) => {
             const result = await generateValidator({
@@ -66,7 +66,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
                 assert.strictEqual(oldValidatorCode, result.code);
             } catch (error) {
                 console.error(
-                    "Found diff between types and validator.\nPlease update validator: $ npx create-ts-validator " +
+                    "Found diff between types and validator.\nPlease update validator: $ npx create-validator-ts " +
                         filePath
                 );
                 throw error;
@@ -79,7 +79,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
 }
 
 export async function createValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: validatorCodeGenerator };
+    const { generator } = (await import(options.codeGeneratorScript)) as { generator: defaultCodeGenerator };
     const files = globby.sync(options.targetGlobs, {
         cwd: options.cwd,
         absolute: true
