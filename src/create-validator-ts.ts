@@ -1,7 +1,7 @@
 import * as path from "path";
 import * as _fs from "fs";
 import { Config, createGenerator } from "ts-json-schema-generator";
-import { defaultCodeGenerator } from "./default-code-generator";
+import { CodeGenerator } from "./default-code-generator";
 
 const fs = _fs.promises;
 
@@ -12,7 +12,7 @@ export async function generateValidator({
     filePath
 }: {
     cwd: string;
-    validatorGenerator: defaultCodeGenerator;
+    validatorGenerator: CodeGenerator;
     tsconfigFilePath: string;
     filePath: string;
 }) {

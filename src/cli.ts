@@ -30,7 +30,7 @@ export const cli = meow(
             },
             generatorScript: {
                 type: "string",
-                default: path.join(__dirname, "validator-code-generator")
+                default: path.join(__dirname, "default-code-generator")
             },
             cwd: {
                 type: "string",

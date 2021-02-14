@@ -3,9 +3,9 @@ import _fs from "fs";
 import * as globby from "globby";
 import assert from "assert";
 import { generateValidator } from "./create-validator-ts";
-import { defaultCodeGenerator } from "./default-code-generator";
+import { CodeGenerator } from "./default-code-generator";
 
-export { GenerateValidatorCodeOptions, defaultCodeGenerator } from "./default-code-generator";
+export { GenerateValidatorCodeOptions, CodeGenerator } from "./default-code-generator";
 // TODO: Node 14+
 const fs = _fs.promises;
 export type CreateTSValidatorOptions = {
@@ -17,7 +17,7 @@ export type CreateTSValidatorOptions = {
 };
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: defaultCodeGenerator };
+    const { generator } = (await import(options.codeGeneratorScript)) as { generator: CodeGenerator };
     const watcher = globWatch(options.targetGlobs, {
         ignoreInitial: true
     });

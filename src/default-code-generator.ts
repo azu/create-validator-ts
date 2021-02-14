@@ -7,7 +7,7 @@ export type GenerateValidatorCodeOptions = {
     validatorFilePath: string;
     schema: Definition;
 };
-export type defaultCodeGenerator = (options: GenerateValidatorCodeOptions) => string;
+export type CodeGenerator = (options: GenerateValidatorCodeOptions) => string;
 export const generator = ({ apiFilePath, apiFileCode, schema }: GenerateValidatorCodeOptions) => {
     const apiFileName = path.basename(apiFilePath, ".ts");
     const isExportedTypeInApiTypes = (apiName: string) => {
