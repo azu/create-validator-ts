@@ -33,7 +33,7 @@ const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");`;
             return `export function validate${apiName}(payload: unknown): apiTypes.${apiName} {
   if (!is${apiName}(payload)) {
   　const error = new Error('invalid payload: ${apiName}');
-    error.name = "ValidatorError";
+    error.name = "ValidationError";
     throw error;
   }
   return payload;
