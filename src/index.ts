@@ -21,20 +21,28 @@ export async function watchValidator(options: CreateTSValidatorOptions) {
     const watcher = globWatch(options.targetGlobs, {
         ignoreInitial: true
     });
-    watcher.on("change", async (filePath) => {
-        const result = await generateValidator({
-            cwd: options.cwd,
-            filePath: filePath,
-            tsconfigFilePath: options.tsconfigFilePath,
-            validatorGenerator: generator
+    return new Promise<void>((resolve, reject) => {
+        watcher.on("change", async (filePath) => {
+            const result = await generateValidator({
+                cwd: options.cwd,
+                filePath: filePath,
+                tsconfigFilePath: options.tsconfigFilePath,
+                validatorGenerator: generator
+            });
+            if (!result) {
+                return;
+            }
+            if (options.verbose) {
+                console.log("Update validator: " + result.validatorFilePath);
+            }
+            return fs.writeFile(result.validatorFilePath, result.code, "utf-8");
         });
-        if (!result) {
-            return;
-        }
-        if (options.verbose) {
-            console.log("Update validator: " + result.validatorFilePath);
-        }
-        return fs.writeFile(result.validatorFilePath, result.code, "utf-8");
+        watcher.on("close", () => {
+            resolve();
+        });
+        watcher.on("error", (error) => {
+            reject(error);
+        });
     });
 }
 
