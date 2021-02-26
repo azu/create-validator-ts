@@ -4,6 +4,7 @@ import * as globby from "globby";
 import assert from "assert";
 import { generateValidator } from "./create-validator-ts";
 import { CodeGenerator } from "./default-code-generator";
+import path from "path";
 
 export { GenerateValidatorCodeOptions, CodeGenerator } from "./default-code-generator";
 // TODO: Node 14+
@@ -17,7 +18,9 @@ export type CreateTSValidatorOptions = {
 };
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: CodeGenerator };
+    const { generator } = (await import(path.join(options.cwd, options.codeGeneratorScript))) as {
+        generator: CodeGenerator;
+    };
     const watcher = globWatch(options.targetGlobs, {
         ignoreInitial: true
     });
@@ -52,7 +55,9 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
         cwd: options.cwd,
         absolute: true
     });
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: CodeGenerator };
+    const { generator } = (await import(path.join(options.cwd, options.codeGeneratorScript))) as {
+        generator: CodeGenerator;
+    };
     return Promise.all(
         files.map(async (filePath) => {
             const result = await generateValidator({
@@ -87,7 +92,9 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
 }
 
 export async function createValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(options.codeGeneratorScript)) as { generator: CodeGenerator };
+    const { generator } = (await import(path.join(options.cwd, options.codeGeneratorScript))) as {
+        generator: CodeGenerator;
+    };
     const files = globby.sync(options.targetGlobs, {
         cwd: options.cwd,
         absolute: true
