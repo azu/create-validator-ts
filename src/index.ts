@@ -18,7 +18,7 @@ export type CreateTSValidatorOptions = {
 };
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(path.join(options.cwd, options.codeGeneratorScript))) as {
+    const { generator } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
         generator: CodeGenerator;
     };
     const watcher = globWatch(options.targetGlobs, {
@@ -55,7 +55,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
         cwd: options.cwd,
         absolute: true
     });
-    const { generator } = (await import(path.join(options.cwd, options.codeGeneratorScript))) as {
+    const { generator } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
         generator: CodeGenerator;
     };
     return Promise.all(
@@ -92,7 +92,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
 }
 
 export async function createValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(path.join(options.cwd, options.codeGeneratorScript))) as {
+    const { generator } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
         generator: CodeGenerator;
     };
     const files = globby.sync(options.targetGlobs, {
