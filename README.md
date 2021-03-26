@@ -152,6 +152,15 @@ export function isGetAPIResponseBody(payload: unknown): payload is apiTypes.GetA
 }
 ```
 
+## Check generated code
+
+When You can check if your generated codes are match with `api-types.ts`, you can run it via `--check` flag.
+
+    $ create-validator-ts "src/**/api-types.ts"
+    # $? → 0 or 1
+
+It is useful for testing on CI.
+
 ## Custom Validator
 
 You can create custom validator using `--generatorScript` flag.
