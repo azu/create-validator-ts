@@ -13,7 +13,7 @@ const SCHEMA = {
             "properties": {
                 "id": {
                     "type": "string",
-                    "pattern": "/[a-z]{3,}/"
+                    "pattern": "[a-z]{3,}"
                 },
                 "age": {
                     "type": "number",
