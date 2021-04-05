@@ -4,7 +4,7 @@
 // https://github.com/YousefED/typescript-json-schema#annotations
 export type UpdateUser = {
     /**
-     * @pattern /[a-z]{4}/
+     * @pattern /[a-z]{3,}/
      */
     id: string;
     /**
