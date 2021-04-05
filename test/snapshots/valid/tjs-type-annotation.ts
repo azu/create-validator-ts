@@ -1,5 +1,5 @@
 // WARNING: THIS IS EXPERIMENTAL FEATURES
-// THIS FEATURE MAY BE DROPPED IN SOME TIMES
+// THIS FEATURE MAY BE DROPPED IN THE FUTURE
 // https://github.com/vega/ts-json-schema-generator/blob/master/src/AnnotationsReader/BasicAnnotationsReader.ts
 // https://github.com/YousefED/typescript-json-schema#annotations
 export type UpdateUser = {
