@@ -15,7 +15,7 @@ describe("index", function () {
     it("check .validator.ts", async () => {
         await testGeneratedValidator({
             cwd: __dirname,
-            targetGlobs: ["./snapshots/valid/api-types.ts"],
+            targetGlobs: ["./snapshots/valid/*.ts", "!./snapshots/valid/*.validator.ts"],
             codeGeneratorScript: path.join(__dirname, "../src/default-code-generator.ts"),
             verbose: false,
             tsconfigFilePath: path.join(__dirname, "../tsconfig.json")
