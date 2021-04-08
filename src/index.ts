@@ -18,8 +18,9 @@ export type CreateTSValidatorOptions = {
 };
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
+    const { generator, extraTags } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
         generator: CodeGenerator;
+        extraTags: string[];
     };
     const watcher = globWatch(options.targetGlobs, {
         ignoreInitial: true
@@ -30,7 +31,8 @@ export async function watchValidator(options: CreateTSValidatorOptions) {
                 cwd: options.cwd,
                 filePath: filePath,
                 tsconfigFilePath: options.tsconfigFilePath,
-                validatorGenerator: generator
+                validatorGenerator: generator,
+                extraTags: extraTags
             });
             if (!result) {
                 return;
@@ -55,8 +57,9 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
         cwd: options.cwd,
         absolute: true
     });
-    const { generator } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
+    const { generator, extraTags } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
         generator: CodeGenerator;
+        extraTags: string[];
     };
     return Promise.all(
         files.map(async (filePath) => {
@@ -64,7 +67,8 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
                 cwd: options.cwd,
                 filePath: filePath,
                 tsconfigFilePath: options.tsconfigFilePath,
-                validatorGenerator: generator
+                validatorGenerator: generator,
+                extraTags: extraTags
             });
             if (!result) {
                 return;
@@ -92,8 +96,9 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
 }
 
 export async function createValidator(options: CreateTSValidatorOptions) {
-    const { generator } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
+    const { generator, extraTags } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
         generator: CodeGenerator;
+        extraTags: string[];
     };
     const files = globby.sync(options.targetGlobs, {
         cwd: options.cwd,
@@ -105,7 +110,8 @@ export async function createValidator(options: CreateTSValidatorOptions) {
                 cwd: options.cwd,
                 filePath: filePath,
                 tsconfigFilePath: options.tsconfigFilePath,
-                validatorGenerator: generator
+                validatorGenerator: generator,
+                extraTags: extraTags
             });
             if (!result) {
                 return;

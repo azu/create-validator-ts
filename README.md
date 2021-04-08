@@ -216,6 +216,7 @@ ${code}
 `;
 };
 exports.generator = generator;
+exports.extraTags = [];
 ```
 
 ## Ignore generated Code
