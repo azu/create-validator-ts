@@ -216,7 +216,9 @@ ${code}
 `;
 };
 exports.generator = generator;
-exports.extraTags = [];
+exports.generatorOptions = {
+  extraTags: ["<ajv-plugin-extra-tag>"] // optional
+};
 ```
 
 ## Ignore generated Code

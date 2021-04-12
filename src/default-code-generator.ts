@@ -51,5 +51,3 @@ ${schemaDefinition}
 ${code}
 `;
 };
-
-export const extraTags = [];

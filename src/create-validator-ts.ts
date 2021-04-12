@@ -10,13 +10,13 @@ export async function generateValidator({
     validatorGenerator,
     tsconfigFilePath,
     filePath,
-    extraTags
+    extraTags = []
 }: {
     cwd: string;
     validatorGenerator: CodeGenerator;
     tsconfigFilePath: string;
     filePath: string;
-    extraTags: string[];
+    extraTags?: string[];
 }) {
     const absoluteFilePath = path.resolve(cwd, filePath);
     const parentFileDir = path.dirname(path.resolve(cwd, filePath));
