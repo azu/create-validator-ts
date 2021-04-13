@@ -18,9 +18,11 @@ export type CreateTSValidatorOptions = {
 };
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
-    const { generator, generatorOptions } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
+    const { generator, generatorOptions = {} } = (await import(
+        path.resolve(options.cwd, options.codeGeneratorScript)
+    )) as {
         generator: CodeGenerator;
-        generatorOptions: {
+        generatorOptions?: {
             extraTags?: string[];
         };
     };
@@ -59,9 +61,11 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
         cwd: options.cwd,
         absolute: true
     });
-    const { generator, generatorOptions } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
+    const { generator, generatorOptions = {} } = (await import(
+        path.resolve(options.cwd, options.codeGeneratorScript)
+    )) as {
         generator: CodeGenerator;
-        generatorOptions: {
+        generatorOptions?: {
             extraTags?: string[];
         };
     };
@@ -100,9 +104,11 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
 }
 
 export async function createValidator(options: CreateTSValidatorOptions) {
-    const { generator, generatorOptions } = (await import(path.resolve(options.cwd, options.codeGeneratorScript))) as {
+    const { generator, generatorOptions = {} } = (await import(
+        path.resolve(options.cwd, options.codeGeneratorScript)
+    )) as {
         generator: CodeGenerator;
-        generatorOptions: {
+        generatorOptions?: {
             extraTags?: string[];
         };
     };
