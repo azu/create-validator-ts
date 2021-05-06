@@ -32,4 +32,16 @@ describe("index", function () {
             })
         );
     });
+    it("check by custom-code-generator", async () => {
+        await testGeneratedValidator({
+            cwd: __dirname,
+            targetGlobs: [
+                "./snapshots/custom-generator-valid/*.ts",
+                "!./snapshots/custom-generator-valid/*.validator.ts"
+            ],
+            codeGeneratorScript: path.join(__dirname, "./custom-code-generator.ts"),
+            verbose: false,
+            tsconfigFilePath: path.join(__dirname, "../tsconfig.json")
+        });
+    });
 });

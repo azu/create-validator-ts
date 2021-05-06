@@ -9,12 +9,14 @@ export async function generateValidator({
     cwd,
     validatorGenerator,
     tsconfigFilePath,
-    filePath
+    filePath,
+    extraTags = []
 }: {
     cwd: string;
     validatorGenerator: CodeGenerator;
     tsconfigFilePath: string;
     filePath: string;
+    extraTags?: string[];
 }) {
     const absoluteFilePath = path.resolve(cwd, filePath);
     const parentFileDir = path.dirname(path.resolve(cwd, filePath));
@@ -26,7 +28,8 @@ export async function generateValidator({
             tsconfig: tsconfigFilePath,
             type: "*",
             skipTypeCheck: true,
-            additionalProperties: false
+            additionalProperties: false,
+            extraTags: extraTags
         };
         const generator = createGenerator(config);
         const schema = generator.createSchema(config.type);
