@@ -1,2 +1,2 @@
-#!/usr/bin/env node
-require('.bin/lint-staged');
+#!/bin/sh
+npx --no-install lint-staged
