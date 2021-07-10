@@ -57,21 +57,21 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "@types/glob-watcher": "^5.0.0",
-    "@types/mocha": "^8.2.2",
-    "@types/node": "^15.6.1",
+    "@types/glob-watcher": "^5.0.1",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "^16.3.1",
     "lint-staged": "^11.0.0",
-    "mocha": "^8.4.0",
-    "prettier": "^2.3.0",
+    "mocha": "^9.0.2",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.1.0",
     "ts-node-test-register": "^10.0.0",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "glob-watcher": "^5.0.5",
-    "globby": "^11.0.3",
+    "globby": "^11.0.4",
     "meow": "^9.0.0",
-    "ts-json-schema-generator": "^0.93.0"
+    "ts-json-schema-generator": "^0.94.1"
   }
 }
