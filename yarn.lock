@@ -1248,6 +1248,13 @@ json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
+json5@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.0.tgz#2dfefe720c6ba525d9ebd909950f0515316c89a3"
+  integrity sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==
+  dependencies:
+    minimist "^1.2.5"
+
 jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
@@ -1467,6 +1474,11 @@ minimist-options@4.1.0:
     arrify "^1.0.1"
     is-plain-obj "^1.1.0"
     kind-of "^6.0.3"
+
+minimist@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
+  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
 mixin-deep@^1.2.0:
   version "1.3.2"
@@ -2245,16 +2257,17 @@ trim-newlines@^3.0.0:
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-3.0.1.tgz#260a5d962d8b752425b32f3a7db0dcacd176c144"
   integrity sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==
 
-ts-json-schema-generator@^0.94.1:
-  version "0.94.1"
-  resolved "https://registry.yarnpkg.com/ts-json-schema-generator/-/ts-json-schema-generator-0.94.1.tgz#cfecf63cdb2bbbed30c8da2bfc74a8dfb30aa14e"
-  integrity sha512-v2onRxViC7Q5jAvzwfhevbWrd6EUQ/v+s2ey1RcX2oZ67ENdTumwkr434BtbW286P8z/SNmkmLE8I1AOcSbWSw==
+ts-json-schema-generator@^0.95.0:
+  version "0.95.0"
+  resolved "https://registry.yarnpkg.com/ts-json-schema-generator/-/ts-json-schema-generator-0.95.0.tgz#726cd4e0979cb772da57a6d7581474e87015adfc"
+  integrity sha512-qyArLCOmy0UnnGeCewpZgaGglPMmawAhsuYDRDa1BeZiyE+M/I2dH+dSMtFj8kVbWSEayfVmQIF9UBINBfeKSg==
   dependencies:
     "@types/json-schema" "^7.0.7"
     commander "^8.0.0"
     fast-json-stable-stringify "^2.1.0"
     glob "^7.1.7"
     json-stable-stringify "^1.0.1"
+    json5 "^2.2.0"
     typescript "~4.3.4"
 
 ts-node-test-register@^10.0.0:
