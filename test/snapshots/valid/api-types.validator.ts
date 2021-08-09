@@ -4,7 +4,7 @@
 import Ajv from 'ajv';
 import * as apiTypes from './api-types';
 
-export const SCHEMA = {
+const SCHEMA = {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
         "GetAPIRequestQuery": {
