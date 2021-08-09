@@ -4,7 +4,7 @@
 import Ajv from 'ajv';
 import * as apiTypes from './tjs-type-annotation';
 
-const SCHEMA = {
+export const SCHEMA = {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$ref": "#/definitions/UpdateUser",
     "definitions": {
