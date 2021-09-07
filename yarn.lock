@@ -76,10 +76,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
   integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
 
-"@types/glob-watcher@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@types/glob-watcher/-/glob-watcher-5.0.1.tgz#c61cf5769e60b96b188d14017c56b3392e1f0ea8"
-  integrity sha512-P7jA2G2+hVQ9BBMfSPYJaZ4qqdEQJyt4fyCcn3YTkzhW7iVc4dkktb0NeZCfSgcqo+sqKP2dRa9EBCUSH9tzaw==
+"@types/glob-watcher@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@types/glob-watcher/-/glob-watcher-5.0.2.tgz#df3f13202cd8d9dfc9b9a98dd180012339c2acae"
+  integrity sha512-MZeh2nIzibl/euv5UV0femkGzcKTSE4G2+zv48d6ymeitWwCx52+4X+FqzML9oH2mQnPs+N/JHp3CsBPj1x1Ug==
   dependencies:
     "@types/node" "*"
 
