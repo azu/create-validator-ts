@@ -72,6 +72,6 @@
     "glob-watcher": "^5.0.5",
     "globby": "^11.1.0",
     "meow": "^9.0.0",
-    "ts-json-schema-generator": "^0.97.0"
+    "ts-json-schema-generator": "^0.98.0"
   }
 }
