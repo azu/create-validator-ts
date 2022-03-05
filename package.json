@@ -59,6 +59,7 @@
   "devDependencies": {
     "@types/glob-watcher": "^5.0.2",
     "@types/mocha": "^8.2.3",
+    "ajv": "^8.10.0",
     "@types/node": "^16.11.26",
     "lint-staged": "^11.2.6",
     "mocha": "^9.2.1",

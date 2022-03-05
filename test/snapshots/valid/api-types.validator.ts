@@ -35,8 +35,11 @@ export const SCHEMA = {
 };
 const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");
 export function validateGetAPIRequestQuery(payload: unknown): apiTypes.GetAPIRequestQuery {
-  if (!isGetAPIRequestQuery(payload)) {
-    const error = new Error('invalid payload: GetAPIRequestQuery');
+  /** Schema is defined in {@link SCHEMA.definitions.GetAPIRequestQuery } **/
+  const validator = ajv.getSchema("SCHEMA#/definitions/GetAPIRequestQuery");
+  const valid = validator(payload);
+  if (!valid) {
+   const error = new Error('Invalid GetAPIRequestQuery: ' + ajv.errorsText(validator.errors, {dataVar: "GetAPIRequestQuery"}));
     error.name = "ValidationError";
     throw error;
   }
@@ -44,14 +47,19 @@ export function validateGetAPIRequestQuery(payload: unknown): apiTypes.GetAPIReq
 }
 
 export function isGetAPIRequestQuery(payload: unknown): payload is apiTypes.GetAPIRequestQuery {
-  /** Schema is defined in {@link SCHEMA.definitions.GetAPIRequestQuery } **/
-  const ajvValidate = ajv.compile({ "$ref": "SCHEMA#/definitions/GetAPIRequestQuery" });
-  return ajvValidate(payload);
+  try {
+    validateGetAPIRequestQuery(payload);
+  } catch (error) {
+    return false;
+  }
 }
 
 export function validateGetAPIResponseBody(payload: unknown): apiTypes.GetAPIResponseBody {
-  if (!isGetAPIResponseBody(payload)) {
-    const error = new Error('invalid payload: GetAPIResponseBody');
+  /** Schema is defined in {@link SCHEMA.definitions.GetAPIResponseBody } **/
+  const validator = ajv.getSchema("SCHEMA#/definitions/GetAPIResponseBody");
+  const valid = validator(payload);
+  if (!valid) {
+   const error = new Error('Invalid GetAPIResponseBody: ' + ajv.errorsText(validator.errors, {dataVar: "GetAPIResponseBody"}));
     error.name = "ValidationError";
     throw error;
   }
@@ -59,7 +67,9 @@ export function validateGetAPIResponseBody(payload: unknown): apiTypes.GetAPIRes
 }
 
 export function isGetAPIResponseBody(payload: unknown): payload is apiTypes.GetAPIResponseBody {
-  /** Schema is defined in {@link SCHEMA.definitions.GetAPIResponseBody } **/
-  const ajvValidate = ajv.compile({ "$ref": "SCHEMA#/definitions/GetAPIResponseBody" });
-  return ajvValidate(payload);
+  try {
+    validateGetAPIResponseBody(payload);
+  } catch (error) {
+    return false;
+  }
 }
