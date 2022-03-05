@@ -10,10 +10,23 @@ export const cli = meow(
     Options
       --watch               [Boolean] If set the flag, start watch mode
       --check               [Boolean] If set the flag, start test mode
-      --tsconfigFilePath    [Path:String] path to tsconfig.json
       --cwd                 [Path:String] current working directory
+      --tsconfigFilePath    [Path:String] path to tsconfig.json
       --generatorScript     [Path:String] A JavaScript file path that customize validator code generator
       --verbose             [Boolean] If set the flag, show progressing logs
+     
+      ts-json-schema-generator options
+      --sortProps               [Boolean] Enable sortProps
+      --no-sortProps            
+      --strictTuples            [Boolean] Enable strictTuples
+      --no-strictTuples         
+      --encodeRefs              [Boolean] Enable encodeRefs
+      --no-encodeRefs           
+      --skipTypeCheck           [Boolean] Enable skipTypeCheck. true by default
+      --no-skipTypeCheck
+      --additionalProperties    [Boolean] Enable additionalProperties. false by default
+      --no-additionalProperties 
+    
 
     Examples
       $ create-validator-ts "src/**/api-types.ts"
@@ -45,6 +58,21 @@ export const cli = meow(
             verbose: {
                 type: "boolean",
                 default: true
+            },
+            sortProps: {
+                type: "boolean"
+            },
+            strictTuples: {
+                type: "boolean"
+            },
+            skipTypeCheck: {
+                type: "boolean"
+            },
+            encodeRefs: {
+                type: "boolean"
+            },
+            additionalProperties: {
+                type: "boolean"
             }
         },
         autoHelp: true,
@@ -56,30 +84,24 @@ export const run = async (
     input = cli.input,
     flags = cli.flags
 ): Promise<{ exitStatus: number; stdout: string | null; stderr: Error | null }> => {
+    const options = {
+        cwd: flags.cwd,
+        verbose: flags.verbose,
+        targetGlobs: input,
+        codeGeneratorScript: flags.generatorScript,
+        tsconfigFilePath: flags.tsconfigFilePath,
+        sortProps: flags.sortProps,
+        strictTuples: flags.strictTuples,
+        skipTypeCheck: flags.skipTypeCheck,
+        encodeRefs: flags.encodeRefs,
+        additionalProperties: flags.additionalProperties
+    };
     if (flags.check) {
-        await testGeneratedValidator({
-            cwd: flags.cwd,
-            verbose: flags.verbose,
-            targetGlobs: input,
-            codeGeneratorScript: flags.generatorScript,
-            tsconfigFilePath: flags.tsconfigFilePath
-        });
+        await testGeneratedValidator(options);
     } else if (flags.watch) {
-        await watchValidator({
-            cwd: flags.cwd,
-            verbose: flags.verbose,
-            targetGlobs: input,
-            codeGeneratorScript: flags.generatorScript,
-            tsconfigFilePath: flags.tsconfigFilePath
-        });
+        await watchValidator(options);
     } else {
-        await createValidator({
-            cwd: flags.cwd,
-            verbose: flags.verbose,
-            targetGlobs: input,
-            codeGeneratorScript: flags.generatorScript,
-            tsconfigFilePath: flags.tsconfigFilePath
-        });
+        await createValidator(options);
     }
     return {
         stdout: null,

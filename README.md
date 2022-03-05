@@ -30,16 +30,30 @@ Install with [npm](https://www.npmjs.com/):
 
 ## Usage
 
+
     Usage
       $ create-validator-ts [file|glob*]
  
     Options
       --watch               [Boolean] If set the flag, start watch mode
       --check               [Boolean] If set the flag, start test mode
-      --tsconfigFilePath    [Path:String] path to tsconfig.json
       --cwd                 [Path:String] current working directory
+      --tsconfigFilePath    [Path:String] path to tsconfig.json
       --generatorScript     [Path:String] A JavaScript file path that customize validator code generator
       --verbose             [Boolean] If set the flag, show progressing logs
+     
+      ts-json-schema-generator options
+      --sortProps               [Boolean] Enable sortProps
+      --no-sortProps            
+      --strictTuples            [Boolean] Enable strictTuples
+      --no-strictTuples         
+      --encodeRefs              [Boolean] Enable encodeRefs
+      --no-encodeRefs           
+      --skipTypeCheck           [Boolean] Enable skipTypeCheck. true by default
+      --no-skipTypeCheck
+      --additionalProperties    [Boolean] Enable additionalProperties. false by default
+      --no-additionalProperties 
+    
 
     Examples
       $ create-validator-ts "src/**/api-types.ts"
