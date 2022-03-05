@@ -35,7 +35,7 @@ const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");`;
   const validator = ajv.getSchema("SCHEMA#/definitions/${apiName}");
   const valid = validator(payload);
   if (!valid) {
-   const error = new Error('Invalid ${apiName}: ' + ajv.errorsText(validator.errors, {dataVar: "${apiName}"}));
+    const error = new Error('Invalid ${apiName}: ' + ajv.errorsText(validator.errors, {dataVar: "${apiName}"}));
     error.name = "ValidationError";
     throw error;
   }
