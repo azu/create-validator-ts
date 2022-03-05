@@ -16,8 +16,7 @@ export const SCHEMA = {
             },
             "required": [
                 "id"
-            ],
-            "additionalProperties": false
+            ]
         },
         "GetAPIResponseBody": {
             "type": "object",
@@ -28,8 +27,7 @@ export const SCHEMA = {
             },
             "required": [
                 "ok"
-            ],
-            "additionalProperties": false
+            ]
         }
     }
 };

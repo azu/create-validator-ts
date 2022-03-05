@@ -16,11 +16,16 @@ export const cli = meow(
       --verbose             [Boolean] If set the flag, show progressing logs
      
       ts-json-schema-generator options
-      --sortProps               [Boolean] 
-      --strictTuples            [Boolean] 
-      --encodeRefs              [Boolean] 
-      --skipTypeCheck           [Boolean] true by default
-      --additionalProperties    [Boolean] false by default
+      --sortProps               [Boolean] Enable sortProps
+      --no-sortProps            
+      --strictTuples            [Boolean] Enable strictTuples
+      --no-strictTuples         
+      --encodeRefs              [Boolean] Enable encodeRefs
+      --no-encodeRefs           
+      --skipTypeCheck           [Boolean] Enable skipTypeCheck. true by default
+      --no-skipTypeCheck
+      --additionalProperties    [Boolean] Enable additionalProperties. false by default
+      --no-additionalProperties 
     
 
     Examples
