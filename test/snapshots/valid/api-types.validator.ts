@@ -49,6 +49,7 @@ export function validateGetAPIRequestQuery(payload: unknown): apiTypes.GetAPIReq
 export function isGetAPIRequestQuery(payload: unknown): payload is apiTypes.GetAPIRequestQuery {
   try {
     validateGetAPIRequestQuery(payload);
+    return true;
   } catch (error) {
     return false;
   }
@@ -69,6 +70,7 @@ export function validateGetAPIResponseBody(payload: unknown): apiTypes.GetAPIRes
 export function isGetAPIResponseBody(payload: unknown): payload is apiTypes.GetAPIResponseBody {
   try {
     validateGetAPIResponseBody(payload);
+    return true;
   } catch (error) {
     return false;
   }

@@ -45,6 +45,7 @@ const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");`;
 export function is${apiName}(payload: unknown): payload is apiTypes.${apiName} {
   try {
     validate${apiName}(payload);
+    return true;
   } catch (error) {
     return false;
   }

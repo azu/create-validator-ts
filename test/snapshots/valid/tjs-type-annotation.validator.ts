@@ -44,6 +44,7 @@ export function validateUpdateUser(payload: unknown): apiTypes.UpdateUser {
 export function isUpdateUser(payload: unknown): payload is apiTypes.UpdateUser {
   try {
     validateUpdateUser(payload);
+    return true;
   } catch (error) {
     return false;
   }

@@ -1,6 +1,7 @@
 import { createValidator, testGeneratedValidator } from "../src";
 import path from "path";
 import assert from "assert";
+
 describe("index", function () {
     it("generate .validator.ts", async () => {
         await createValidator({
@@ -11,7 +12,17 @@ describe("index", function () {
             tsconfigFilePath: path.join(__dirname, "../tsconfig.json")
         });
         // test generated code
-        const { validateGetAPIResponseBody } = await import("./snapshots/valid/api-types.validator");
+        const { validateGetAPIResponseBody, isGetAPIResponseBody } = await import(
+            "./snapshots/valid/api-types.validator"
+        );
+        assert.ok(
+            isGetAPIResponseBody({
+                ok: true
+            })
+        );
+        validateGetAPIResponseBody({
+            ok: false
+        });
         assert.throws(() => {
             validateGetAPIResponseBody({});
         }, /Error: Invalid GetAPIResponseBody: GetAPIResponseBody must have required property 'ok'/);
