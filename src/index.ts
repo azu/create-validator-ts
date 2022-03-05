@@ -2,7 +2,7 @@ import globWatch from "glob-watcher";
 import _fs from "fs";
 import * as globby from "globby";
 import assert from "assert";
-import { generateValidator } from "./create-validator-ts";
+import { generateValidator, TsJsonSchemaGeneratorOptions } from "./create-validator-ts";
 import { CodeGenerator } from "./default-code-generator";
 import path from "path";
 
@@ -15,7 +15,7 @@ export type CreateTSValidatorOptions = {
     tsconfigFilePath: string;
     codeGeneratorScript: string;
     targetGlobs: string[];
-};
+} & TsJsonSchemaGeneratorOptions;
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
     const { generator, generatorOptions = {} } = (await import(
@@ -29,6 +29,7 @@ export async function watchValidator(options: CreateTSValidatorOptions) {
     const watcher = globWatch(options.targetGlobs, {
         ignoreInitial: true
     });
+    const { sortProps, strictTuples, encodeRefs, skipTypeCheck, additionalProperties } = options;
     return new Promise<void>((resolve, reject) => {
         watcher.on("change", async (filePath) => {
             const result = await generateValidator({
@@ -36,7 +37,12 @@ export async function watchValidator(options: CreateTSValidatorOptions) {
                 filePath: filePath,
                 tsconfigFilePath: options.tsconfigFilePath,
                 validatorGenerator: generator,
-                extraTags: generatorOptions.extraTags || []
+                extraTags: generatorOptions.extraTags || [],
+                sortProps,
+                strictTuples,
+                encodeRefs,
+                skipTypeCheck,
+                additionalProperties
             });
             if (!result) {
                 return;
@@ -69,6 +75,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
             extraTags?: string[];
         };
     };
+    const { sortProps, strictTuples, encodeRefs, skipTypeCheck, additionalProperties } = options;
     return Promise.all(
         files.map(async (filePath) => {
             const result = await generateValidator({
@@ -76,7 +83,12 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
                 filePath: filePath,
                 tsconfigFilePath: options.tsconfigFilePath,
                 validatorGenerator: generator,
-                extraTags: generatorOptions.extraTags || []
+                extraTags: generatorOptions.extraTags || [],
+                sortProps,
+                strictTuples,
+                encodeRefs,
+                skipTypeCheck,
+                additionalProperties
             });
             if (!result) {
                 return;
@@ -116,6 +128,7 @@ export async function createValidator(options: CreateTSValidatorOptions) {
         cwd: options.cwd,
         absolute: true
     });
+    const { sortProps, strictTuples, encodeRefs, skipTypeCheck, additionalProperties } = options;
     return Promise.all(
         files.map(async (filePath) => {
             const result = await generateValidator({
@@ -123,7 +136,12 @@ export async function createValidator(options: CreateTSValidatorOptions) {
                 filePath: filePath,
                 tsconfigFilePath: options.tsconfigFilePath,
                 validatorGenerator: generator,
-                extraTags: generatorOptions.extraTags || []
+                extraTags: generatorOptions.extraTags || [],
+                sortProps,
+                strictTuples,
+                encodeRefs,
+                skipTypeCheck,
+                additionalProperties
             });
             if (!result) {
                 return;
