@@ -39,7 +39,7 @@ export function validateGetAPIRequestQuery(payload: unknown): apiTypes.GetAPIReq
   const validator = ajv.getSchema("SCHEMA#/definitions/GetAPIRequestQuery");
   const valid = validator(payload);
   if (!valid) {
-   const error = new Error('Invalid GetAPIRequestQuery: ' + ajv.errorsText(validator.errors, {dataVar: "GetAPIRequestQuery"}));
+    const error = new Error('Invalid GetAPIRequestQuery: ' + ajv.errorsText(validator.errors, {dataVar: "GetAPIRequestQuery"}));
     error.name = "ValidationError";
     throw error;
   }
@@ -60,7 +60,7 @@ export function validateGetAPIResponseBody(payload: unknown): apiTypes.GetAPIRes
   const validator = ajv.getSchema("SCHEMA#/definitions/GetAPIResponseBody");
   const valid = validator(payload);
   if (!valid) {
-   const error = new Error('Invalid GetAPIResponseBody: ' + ajv.errorsText(validator.errors, {dataVar: "GetAPIResponseBody"}));
+    const error = new Error('Invalid GetAPIResponseBody: ' + ajv.errorsText(validator.errors, {dataVar: "GetAPIResponseBody"}));
     error.name = "ValidationError";
     throw error;
   }

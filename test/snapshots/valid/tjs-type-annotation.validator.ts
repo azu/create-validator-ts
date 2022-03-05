@@ -34,7 +34,7 @@ export function validateUpdateUser(payload: unknown): apiTypes.UpdateUser {
   const validator = ajv.getSchema("SCHEMA#/definitions/UpdateUser");
   const valid = validator(payload);
   if (!valid) {
-   const error = new Error('Invalid UpdateUser: ' + ajv.errorsText(validator.errors, {dataVar: "UpdateUser"}));
+    const error = new Error('Invalid UpdateUser: ' + ajv.errorsText(validator.errors, {dataVar: "UpdateUser"}));
     error.name = "ValidationError";
     throw error;
   }
