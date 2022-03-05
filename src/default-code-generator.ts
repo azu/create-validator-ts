@@ -31,8 +31,11 @@ const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");`;
         })
         .map(([apiName, _schema]) => {
             return `export function validate${apiName}(payload: unknown): apiTypes.${apiName} {
-  if (!is${apiName}(payload)) {
-    const error = new Error('invalid payload: ${apiName}');
+  /** Schema is defined in {@link SCHEMA.definitions.${apiName} } **/
+  const validator = ajv.getSchema("SCHEMA#/definitions/${apiName}");
+  const valid = validator(payload);
+  if (!valid) {
+   const error = new Error('Invalid ${apiName}: ' + ajv.errorsText(validator.errors, {dataVar: "${apiName}"}));
     error.name = "ValidationError";
     throw error;
   }
@@ -40,9 +43,11 @@ const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");`;
 }
 
 export function is${apiName}(payload: unknown): payload is apiTypes.${apiName} {
-  /** Schema is defined in {@link SCHEMA.definitions.${apiName} } **/
-  const ajvValidate = ajv.compile({ "$ref": "SCHEMA#/definitions/${apiName}" });
-  return ajvValidate(payload);
+  try {
+    validate${apiName}(payload);
+  } catch (error) {
+    return false;
+  }
 }`;
         })
         .join("\n\n");

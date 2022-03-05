@@ -30,8 +30,11 @@ export const SCHEMA = {
 };
 const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");
 export function validateUpdateUser(payload: unknown): apiTypes.UpdateUser {
-  if (!isUpdateUser(payload)) {
-    const error = new Error('invalid payload: UpdateUser');
+  /** Schema is defined in {@link SCHEMA.definitions.UpdateUser } **/
+  const validator = ajv.getSchema("SCHEMA#/definitions/UpdateUser");
+  const valid = validator(payload);
+  if (!valid) {
+   const error = new Error('Invalid UpdateUser: ' + ajv.errorsText(validator.errors, {dataVar: "UpdateUser"}));
     error.name = "ValidationError";
     throw error;
   }
@@ -39,7 +42,9 @@ export function validateUpdateUser(payload: unknown): apiTypes.UpdateUser {
 }
 
 export function isUpdateUser(payload: unknown): payload is apiTypes.UpdateUser {
-  /** Schema is defined in {@link SCHEMA.definitions.UpdateUser } **/
-  const ajvValidate = ajv.compile({ "$ref": "SCHEMA#/definitions/UpdateUser" });
-  return ajvValidate(payload);
+  try {
+    validateUpdateUser(payload);
+  } catch (error) {
+    return false;
+  }
 }
