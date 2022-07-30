@@ -30,17 +30,17 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@file-cache/core@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@file-cache/core/-/core-1.1.0.tgz#b0e190f8fb61cac9dbe882270f7f6f61967ed91b"
-  integrity sha512-oz0iwCWTCX9retEsgpIeu3ZmOFK6okN9Ql1sH6WJX06upWqmcp+4IdZaDNsrfsKdY11msT3oYi+Z0Du24eOGNQ==
+"@file-cache/core@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@file-cache/core/-/core-1.1.1.tgz#6dcbb89ed8d265422f71644df9bad7d7ef13e889"
+  integrity sha512-7RiYGLhmrOkjrkpMMop7Pcrx4LX2Q/uN7MkM5GwoRFRMxh2BtN3Gz95dpnRKU81IIx+G6OL9rWrDtWQSDM9Wlg==
   dependencies:
     pkg-dir "^6.0.1"
 
-"@file-cache/npm@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@file-cache/npm/-/npm-1.1.0.tgz#3db6bf14064d212661f56148661d8ef484ae99f8"
-  integrity sha512-7v70oXoNIVuEbrGrHqzyW4PXwv1gPLI9ciqY6RtX11FAdVRXWdwEJGvOBcYjyJEv6+Zd9ZfhGuo5P7LDqxxd4Q==
+"@file-cache/npm@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@file-cache/npm/-/npm-1.1.1.tgz#a76e8f371085fb0649ecc70d65e051abded62831"
+  integrity sha512-F7eCz6QfHF2jl1oKliFXLJY9pcEeYdVQ7uGoUZdu77LhZ8BEXjnLRfwsI0/zP1pmHqyd6bSI0Xu/VjSNgsP+eQ==
   dependencies:
     resolve "^1.22.1"
 
