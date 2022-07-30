@@ -58,21 +58,23 @@
   },
   "devDependencies": {
     "@types/glob-watcher": "^5.0.2",
-    "@types/mocha": "^8.2.3",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.6.2",
     "ajv": "^8.11.0",
-    "@types/node": "^16.11.45",
-    "lint-staged": "^11.2.6",
-    "mocha": "^9.2.2",
-    "prettier": "^2.3.2",
+    "lint-staged": "^13.0.3",
+    "mocha": "^10.0.0",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "ts-node-test-register": "^10.0.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@file-cache/core": "^1.1.0",
+    "@file-cache/npm": "^1.1.0",
     "glob-watcher": "^5.0.5",
     "globby": "^11.1.0",
     "meow": "^9.0.0",
-    "ts-json-schema-generator": "^0.98.0"
+    "ts-json-schema-generator": "^1.0.0"
   }
 }

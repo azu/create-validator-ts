@@ -9,6 +9,7 @@ export const cli = meow(
  
     Options
       --watch               [Boolean] If set the flag, start watch mode
+      --cache               [Boolean] If set the flag, cache the generated validator
       --check               [Boolean] If set the flag, start test mode
       --cwd                 [Path:String] current working directory
       --tsconfigFilePath    [Path:String] path to tsconfig.json
@@ -30,6 +31,8 @@ export const cli = meow(
 
     Examples
       $ create-validator-ts "src/**/api-types.ts"
+      # use cache
+      $ create-validator-ts --cache "src/**/api-types.ts"
       # custom tsconfig.json
       $ create-validator-ts "src/**/api-types.ts" --tsconfigFilePath ./tsconfig.app.json
       # custom validator code
@@ -51,6 +54,10 @@ export const cli = meow(
             },
             watch: {
                 type: "boolean"
+            },
+            cache: {
+                type: "boolean",
+                default: false
             },
             check: {
                 type: "boolean"
@@ -94,7 +101,8 @@ export const run = async (
         strictTuples: flags.strictTuples,
         skipTypeCheck: flags.skipTypeCheck,
         encodeRefs: flags.encodeRefs,
-        additionalProperties: flags.additionalProperties
+        additionalProperties: flags.additionalProperties,
+        noCache: !flags.cache // disable by default
     };
     if (flags.check) {
         await testGeneratedValidator(options);

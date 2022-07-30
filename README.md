@@ -57,6 +57,8 @@ Install with [npm](https://www.npmjs.com/):
 
     Examples
       $ create-validator-ts "src/**/api-types.ts"
+      # use cache
+      $ create-validator-ts --cache "src/**/api-types.ts"
       # custom tsconfig.json
       $ create-validator-ts "src/**/api-types.ts" --tsconfigFilePath ./tsconfig.app.json
       # custom validator code
