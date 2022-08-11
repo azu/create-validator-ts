@@ -70,8 +70,8 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "@file-cache/core": "^1.1.2",
-    "@file-cache/npm": "^1.1.2",
+    "@file-cache/core": "^1.1.3",
+    "@file-cache/npm": "^1.1.3",
     "glob-watcher": "^5.0.5",
     "globby": "^11.1.0",
     "meow": "^9.0.0",
