@@ -60,7 +60,7 @@
     "@types/glob-watcher": "^5.0.2",
     "@types/mocha": "^9.1.1",
     "@types/node": "^18.11.9",
-    "ajv": "^8.11.0",
+    "ajv": "^8.11.2",
     "lint-staged": "^13.0.3",
     "mocha": "^10.1.0",
     "prettier": "^2.7.1",
