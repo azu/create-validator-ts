@@ -1,5 +1,13 @@
 {
   "extends": [
     "@azu:maintenance"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["ts-json-schema-generator"],
+      "major": {
+        "enabled": true
+      }
+    }
   ]
 }
