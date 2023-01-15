@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Basic Options */
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "newLine": "LF",
@@ -19,7 +19,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*"
