@@ -27,16 +27,11 @@
         "types": "./module/index.d.ts",
         "default": "./module/index.js"
       },
-      "require": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      },
-      "default": "./lib/index.js"
+      "default": "./module/index.js"
     },
     "./package.json": "./package.json"
   },
-  "main": "./lib/index.js",
-  "module": "./module/index.js",
+  "main": "./module/index.js",
   "types": "./module/index.d.ts",
   "bin": {
     "create-validator-ts": "bin/cmd.js"
