@@ -39,6 +39,7 @@ export const cli = meow(
       $ create-validator-ts "src/**/api-types.ts" --generatorScript ./custom.js
 `,
     {
+        importMeta: import.meta,
         flags: {
             tsconfigFilePath: {
                 type: "string",
