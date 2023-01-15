@@ -1,6 +1,10 @@
 import meow from "meow";
-import path from "path";
-import { createValidator, testGeneratedValidator, watchValidator } from "./index";
+import path from "node:path";
+import url from "node:url";
+const __filename__ = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename__);
+
+import { createValidator, testGeneratedValidator, watchValidator } from "./index.js";
 
 export const cli = meow(
     `
