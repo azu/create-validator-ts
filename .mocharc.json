@@ -1,6 +1,7 @@
 {
-    "require": [
-        "ts-node-test-register"
-    ],
-    "timeout": 10000
+  "$schema": "https://json.schemastore.org/mocharc",
+  "loader": "ts-node/esm",
+  "spec": [
+    "test/**/*.ts"
+  ]
 }

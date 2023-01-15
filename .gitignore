@@ -155,3 +155,5 @@ fabric.properties
 # Build files
 /lib
 /module
+/module/
+/lib/

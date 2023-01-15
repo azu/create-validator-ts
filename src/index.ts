@@ -1,14 +1,14 @@
 import globWatch from "glob-watcher";
-import _fs from "fs";
+import _fs from "node:fs";
 import * as globby from "globby";
-import assert from "assert";
-import { generateValidator, TsJsonSchemaGeneratorOptions } from "./create-validator-ts";
-import { CodeGenerator } from "./default-code-generator";
-import path from "path";
+import assert from "node:assert";
+import { generateValidator, TsJsonSchemaGeneratorOptions } from "./create-validator-ts.js";
+import { CodeGenerator } from "./default-code-generator.js";
+import path from "node:path";
 import { createCache } from "@file-cache/core";
 import { createNpmPackageKey } from "@file-cache/npm";
 
-export { GenerateValidatorCodeOptions, CodeGenerator } from "./default-code-generator";
+export { GenerateValidatorCodeOptions, CodeGenerator } from "./default-code-generator.js";
 // TODO: Node 14+
 const fs = _fs.promises;
 export type CreateTSValidatorOptions = {
@@ -66,7 +66,7 @@ export async function watchValidator(options: CreateTSValidatorOptions) {
 
 // --check: validate the difference current of source
 export async function testGeneratedValidator(options: CreateTSValidatorOptions) {
-    const files = globby.sync(options.targetGlobs, {
+    const files = await globby.globby(options.targetGlobs, {
         cwd: options.cwd,
         absolute: true
     });
@@ -127,7 +127,7 @@ export async function createValidator(options: CreateTSValidatorOptions) {
             extraTags?: string[];
         };
     };
-    const files = globby.sync(options.targetGlobs, {
+    const files = await globby.globby(options.targetGlobs, {
         cwd: options.cwd,
         absolute: true
     });

@@ -1,7 +1,7 @@
-import * as path from "path";
-import * as _fs from "fs";
+import * as path from "node:path";
+import * as _fs from "node:fs";
 import { Config, createGenerator } from "ts-json-schema-generator";
-import { CodeGenerator } from "./default-code-generator";
+import { CodeGenerator } from "./default-code-generator.js";
 
 const fs = _fs.promises;
 

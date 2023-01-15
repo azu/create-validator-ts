@@ -1,5 +1,5 @@
 import { Definition } from "ts-json-schema-generator";
-import path from "path";
+import path from "node:path";
 
 export type GenerateValidatorCodeOptions = {
     apiFilePath: string;

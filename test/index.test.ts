@@ -1,6 +1,9 @@
-import { createValidator, testGeneratedValidator } from "../src";
-import path from "path";
-import assert from "assert";
+import { createValidator, testGeneratedValidator } from "../src/index.js";
+import assert from "node:assert";
+import path from "node:path";
+import url from "node:url";
+const __filename__ = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename__);
 
 describe("index", function () {
     it("generate .validator.ts", async () => {
@@ -13,7 +16,7 @@ describe("index", function () {
         });
         // test generated code
         const { validateGetAPIResponseBody, isGetAPIResponseBody } = await import(
-            "./snapshots/valid/api-types.validator"
+            "./snapshots/valid/api-types.validator.js"
         );
         assert.ok(
             isGetAPIResponseBody({
