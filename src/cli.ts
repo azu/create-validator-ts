@@ -50,7 +50,7 @@ export const cli = meow(
             },
             generatorScript: {
                 type: "string",
-                default: path.join(__dirname, "default-code-generator")
+                default: path.join(__dirname, "default-code-generator.js")
             },
             cwd: {
                 type: "string",
