@@ -7,10 +7,20 @@ import { CodeGenerator } from "./default-code-generator.js";
 import path from "node:path";
 import { createCache } from "@file-cache/core";
 import { createNpmPackageKey } from "@file-cache/npm";
+import { pathToFileURL } from "node:url";
 
 export { GenerateValidatorCodeOptions, CodeGenerator } from "./default-code-generator.js";
 // TODO: Node 14+
 const fs = _fs.promises;
+// dynamic import wrapper
+// import() can not load Window file path
+// convert file path to file URL before import()
+// https://github.com/nodejs/node/issues/31710
+export async function dynamicImport(targetPath: string) {
+    const fileUrl = pathToFileURL(targetPath).href;
+    return import(fileUrl);
+}
+
 export type CreateTSValidatorOptions = {
     cwd: string;
     verbose: boolean;
@@ -21,7 +31,7 @@ export type CreateTSValidatorOptions = {
 } & TsJsonSchemaGeneratorOptions;
 
 export async function watchValidator(options: CreateTSValidatorOptions) {
-    const { generator, generatorOptions = {} } = (await import(
+    const { generator, generatorOptions = {} } = (await dynamicImport(
         path.resolve(options.cwd, options.codeGeneratorScript)
     )) as {
         generator: CodeGenerator;
@@ -70,7 +80,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
         cwd: options.cwd,
         absolute: true
     });
-    const { generator, generatorOptions = {} } = (await import(
+    const { generator, generatorOptions = {} } = (await dynamicImport(
         path.resolve(options.cwd, options.codeGeneratorScript)
     )) as {
         generator: CodeGenerator;
@@ -101,9 +111,11 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
             } catch {
                 return;
             }
-            const oldValidatorCode = await fs.readFile(result.validatorFilePath, "utf-8");
+            const prevValidatorCode = await fs.readFile(result.validatorFilePath, {
+                encoding: "utf-8"
+            });
             try {
-                assert.strictEqual(oldValidatorCode, result.code);
+                assert.strictEqual(result.code, prevValidatorCode);
             } catch (error) {
                 console.error(
                     "Found diff between types and validator.\nPlease update validator: $ npx create-validator-ts " +
@@ -119,7 +131,7 @@ export async function testGeneratedValidator(options: CreateTSValidatorOptions) 
 }
 
 export async function createValidator(options: CreateTSValidatorOptions) {
-    const { generator, generatorOptions = {} } = (await import(
+    const { generator, generatorOptions = {} } = (await dynamicImport(
         path.resolve(options.cwd, options.codeGeneratorScript)
     )) as {
         generator: CodeGenerator;
