@@ -5,7 +5,7 @@ Create JSON Schema validator from TypeScript.
 ## Motivation
 
 - Generate JSON Schema Validator functions from TypeScript code
-- Make TypeScript a single source of truth
+- Make TypeScript the [Single source of truth](https://en.wikipedia.org/wiki/Single_source_of_truth)
 
 ### Structure
 
@@ -246,6 +246,22 @@ If you used [Prettier](https://prettier.io/), you should add `*.validator.ts` to
 ```
 
 - [Ignoring Code · Prettier](https://prettier.io/docs/en/ignore.html)
+
+## Compares
+
+- create-validator-ts
+  - It generate TypeScript validator from TypeScript types
+- OpenAPI
+  - It generate TypeScript validator from Schema file
+- TypeScript Validation library like [Zod](https://github.com/colinhacks/zod)
+  - Is allow to share TypeScript code and types, but it need to use builder function
+
+## FAQ
+
+### Can not parse new TypeScript syntax
+
+It related to [vega/ts-json-schema-generator](https://github.com/vega/ts-json-schema-generator).
+Please report the issue to [vega/ts-json-schema-generator](https://github.com/vega/ts-json-schema-generator).
 
 ## Changelog
 
