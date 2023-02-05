@@ -251,6 +251,7 @@ If you have used [Prettier](https://prettier.io/), you should add `*.validator.t
 
 - create-validator-ts
   - It generate TypeScript validator from TypeScript types
+  - [ts-to-zod](https://github.com/fabien0102/ts-to-zod) uses same approach
 - OpenAPI
   - It generate TypeScript validator from Schema file
 - TypeScript Validation library like [Zod](https://github.com/colinhacks/zod)
