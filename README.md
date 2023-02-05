@@ -239,7 +239,7 @@ exports.generatorOptions = {
 
 ## Ignore generated Code
 
-If you used [Prettier](https://prettier.io/), you should add `*.validator.ts` to `.prettierignore`
+If you have used [Prettier](https://prettier.io/), you should add `*.validator.ts` to `.prettierignore`
 
 ```
 *.validator.ts
