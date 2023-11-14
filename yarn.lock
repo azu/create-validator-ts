@@ -103,10 +103,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.3.tgz#472eaab5f15c1ffdd7f8628bd4c4f753995ec79e"
   integrity sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==
 
-"@types/glob-watcher@^5.0.4":
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@types/glob-watcher/-/glob-watcher-5.0.4.tgz#752fbfcfdeb259bc5d318761bbd324daebff7ed5"
-  integrity sha512-D7bolwiqaBDmlQpVWJ/UhRsSC5lmh3jZ7MkMMpiV54ZmZwpSaprA19+NEzYF+mMOBVkDu92IDsZzsqhuZRd9aA==
+"@types/glob-watcher@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@types/glob-watcher/-/glob-watcher-5.0.5.tgz#dbd5547657c6539f1b549ccfbbfa282df9ae72fc"
+  integrity sha512-79p9NNg/3mWMdQ0+OHdV0Yyge8BxhiYAHnVZ/Zz7/DO488osdI9Md9nNPQafAhNTwO0Hp/L8DwGrTG827r5V4g==
   dependencies:
     "@types/node" "*"
 
@@ -120,10 +120,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/mocha@^10.0.3":
-  version "10.0.3"
-  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-10.0.3.tgz#4804fe9cd39da26eb62fa65c15ea77615a187812"
-  integrity sha512-RsOPImTriV/OE4A9qKjMtk2MnXiuLLbcO3nCXK+kvq4nr0iMfFgpjaX3MPLb6f7+EL1FGSelYvuJMV6REH+ZPQ==
+"@types/mocha@^10.0.4":
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-10.0.4.tgz#b5331955ebca216604691fd4fcd2dbdc2bd559a4"
+  integrity sha512-xKU7bUjiFTIttpWaIZ9qvgg+22O1nmbA+HRxdlR+u6TWsGfmFdXrheJoK4fFxrHNVIOBDvDNKZG+LYBpMHpX3w==
 
 "@types/node@*":
   version "18.11.18"
