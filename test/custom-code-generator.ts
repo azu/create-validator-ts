@@ -22,32 +22,35 @@ import Ajv from 'ajv';
 import type * as apiTypes from './${apiFileName}';
 `;
     const customPlugins = `// custom tags
-ajv.addKeyword('boolOption', {
-  modifying: false,
-  compile: () => {
-    return (data, currentDataPath, parentDataObject, propertyName) => {
-      return data;
-    };
-  },
-  errors: false
+ajv.addKeyword({
+    keyword: 'boolOption',
+    modifying: false,
+    compile: () => {
+        return (data, currentDataPath, parentDataObject, propertyName) => {
+            return data;
+        };
+    },
+    errors: false
 });
-ajv.addKeyword('strOption', {
-  modifying: false,
-  compile: () => {
-    return (data, currentDataPath, parentDataObject, propertyName) => {
-      return data;
-    };
-  },
-  errors: false
+ajv.addKeyword({
+    keyword: 'strOption',
+    modifying: false,
+    compile: () => {
+        return (data, currentDataPath, parentDataObject, propertyName) => {
+            return data;
+        };
+    },
+    errors: false
 });
-ajv.addKeyword('numberOption', {
-  modifying: false,
-  compile: () => {
-    return (data, currentDataPath, parentDataObject, propertyName) => {
-      return data;
-    };
-  },
-  errors: false
+ajv.addKeyword({
+    keyword: 'numberOption',
+    modifying: false,
+    compile: () => {
+        return (data, currentDataPath, parentDataObject, propertyName) => {
+            return data;
+        };
+    },
+    errors: false
 });
 `;
     // define SCHEMA to top, and we can refer it as "SCHEMA".
@@ -60,18 +63,18 @@ const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");`;
         })
         .map(([apiName, _schema]) => {
             return `export function validate${apiName}(payload: unknown): apiTypes.${apiName} {
-  if (!is${apiName}(payload)) {
-    const error = new Error('invalid payload: ${apiName}');
-    error.name = "ValidationError";
-    throw error;
-  }
-  return payload;
+    if (!is${apiName}(payload)) {
+        const error = new Error('invalid payload: ${apiName}');
+        error.name = "ValidationError";
+        throw error;
+    }
+    return payload;
 }
 
 export function is${apiName}(payload: unknown): payload is apiTypes.${apiName} {
-  /** Schema is defined in {@link SCHEMA.definitions.${apiName} } **/
-  const ajvValidate = ajv.compile({ "$ref": "SCHEMA#/definitions/${apiName}" });
-  return ajvValidate(payload);
+    /** Schema is defined in {@link SCHEMA.definitions.${apiName} } **/
+    const ajvValidate = ajv.compile({ '$ref': 'SCHEMA#/definitions/${apiName}' });
+    return ajvValidate(payload);
 }`;
         })
         .join("\n\n");
