@@ -146,8 +146,9 @@ export async function createValidator(options: CreateTSValidatorOptions) {
     const { sortProps, strictTuples, encodeRefs, skipTypeCheck, additionalProperties } = options;
 
     const cache = await createCache({
-        keys: [() => createNpmPackageKey(["create-validator-ts"]), () => JSON.stringify(options)],
+        name: "create-validator-ts",
         mode: "content",
+        keys: [() => createNpmPackageKey(["create-validator-ts"]), () => JSON.stringify(options)],
         // disable cache by default
         noCache: options.noCache ?? true
     });
