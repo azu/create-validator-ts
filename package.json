@@ -86,5 +86,5 @@
     "ts-node": "^10.9.2",
     "typescript": "^4.9.4"
   },
-  "packageManager": "yarn@1.22.21"
+  "packageManager": "yarn@1.22.22"
 }
