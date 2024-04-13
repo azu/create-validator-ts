@@ -58,6 +58,15 @@ describe("index", function () {
             })
         );
     });
+    it("support @default tag", async () => {
+        await testValidator({
+            cwd: __dirname,
+            targetGlobs: ["./snapshots/valid/use-default-types.ts"],
+            codeGeneratorScript: path.join(__dirname, "../src/default-code-generator.ts"),
+            verbose: false,
+            tsconfigFilePath: path.join(__dirname, "../tsconfig.json")
+        });
+    });
     it("check by custom-code-generator", async () => {
         await testValidator({
             cwd: __dirname,
