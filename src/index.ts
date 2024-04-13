@@ -1,5 +1,5 @@
 import globWatch from "glob-watcher";
-import _fs from "node:fs";
+import fs from "node:fs/promises";
 import * as globby from "globby";
 import assert from "node:assert";
 import { generateValidator, TsJsonSchemaGeneratorOptions } from "./create-validator-ts.js";
@@ -9,9 +9,7 @@ import { createCache } from "@file-cache/core";
 import { createNpmPackageKey } from "@file-cache/npm";
 import { pathToFileURL } from "node:url";
 
-export { GenerateValidatorCodeOptions, CodeGenerator } from "./default-code-generator.js";
-// TODO: Node 14+
-const fs = _fs.promises;
+export type { GenerateValidatorCodeOptions, CodeGenerator } from "./default-code-generator.js";
 // dynamic import wrapper
 // import() can not load Window file path
 // convert file path to file URL before import()
