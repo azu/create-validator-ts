@@ -24,7 +24,7 @@ import type * as apiTypes from './${apiFileName}';
     // define SCHEMA to top, and we can refer it as "SCHEMA".
     // Note: { "$ref": "SCHEMA#/definitions/${apiName}" }
     const schemaDefinition = `export const SCHEMA = ${JSON.stringify(schema, null, 4)};
-const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");`;
+const ajv = new Ajv({ removeAdditional: true, useDefaults: true }).addSchema(SCHEMA, "SCHEMA");`;
     const code = Object.entries(schema.definitions ?? {})
         .filter(([apiName]) => {
             return isExportedTypeInApiTypes(apiName);

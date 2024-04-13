@@ -53,6 +53,7 @@
     "prepare": "git config --local core.hooksPath .githooks",
     "prepublishOnly": "npm run clean && npm run build",
     "test": "mocha",
+    "updateSnapshots": "UPDATE_SNAPSHOT=true npm test",
     "watch": "tsc -p . --watch"
   },
   "lint-staged": {

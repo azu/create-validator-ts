@@ -28,7 +28,7 @@ export const SCHEMA = {
         }
     }
 };
-const ajv = new Ajv({ removeAdditional: true }).addSchema(SCHEMA, "SCHEMA");
+const ajv = new Ajv({ removeAdditional: true, useDefaults: true }).addSchema(SCHEMA, "SCHEMA");
 export function validateUpdateUser(payload: unknown): apiTypes.UpdateUser {
   /** Schema is defined in {@link SCHEMA.definitions.UpdateUser } **/
   const validator = ajv.getSchema("SCHEMA#/definitions/UpdateUser");
