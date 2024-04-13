@@ -1,10 +1,18 @@
-import { createValidator, testGeneratedValidator } from "../src/index.js";
+import { CreateTSValidatorOptions, createValidator, testGeneratedValidator } from "../src/index.js";
 import assert from "node:assert";
 import path from "node:path";
 import url from "node:url";
+
 const __filename__ = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename__);
 
+const UPDATE_SNAPSHOT = process.env.UPDATE_SNAPSHOT === "true";
+const testValidator = (options: CreateTSValidatorOptions) => {
+    if (UPDATE_SNAPSHOT) {
+        return createValidator(options);
+    }
+    return testGeneratedValidator(options);
+};
 describe("index", function () {
     it("generate .validator.ts", async () => {
         await createValidator({
@@ -31,7 +39,7 @@ describe("index", function () {
         }, /Error: Invalid GetAPIResponseBody: GetAPIResponseBody must have required property 'ok'/);
     });
     it("check .validator.ts", async () => {
-        await testGeneratedValidator({
+        await testValidator({
             cwd: __dirname,
             targetGlobs: ["./snapshots/valid/*.ts", "!./snapshots/valid/*.validator.ts"],
             codeGeneratorScript: path.join(__dirname, "../src/default-code-generator.ts"),
@@ -51,7 +59,7 @@ describe("index", function () {
         );
     });
     it("check by custom-code-generator", async () => {
-        await testGeneratedValidator({
+        await testValidator({
             cwd: __dirname,
             targetGlobs: [
                 "./snapshots/custom-generator-valid/*.ts",
