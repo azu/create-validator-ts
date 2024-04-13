@@ -1,9 +1,7 @@
 import * as path from "node:path";
-import * as _fs from "node:fs";
-import { Config, createGenerator } from "ts-json-schema-generator";
+import * as fs from "node:fs/promises";
+import { CompletedConfig, createGenerator, DEFAULT_CONFIG } from "ts-json-schema-generator";
 import { CodeGenerator } from "./default-code-generator.js";
-
-const fs = _fs.promises;
 
 export type TsJsonSchemaGeneratorOptions = {
     // ts-json-schema-generator Options
@@ -45,16 +43,17 @@ export async function generateValidator({
     const fileName = path.basename(absoluteFilePath, ".ts");
     const apiTypesCode = await fs.readFile(filePath, "utf-8");
     try {
-        const config: Config = {
+        const config: CompletedConfig = {
+            ...DEFAULT_CONFIG,
             path: absoluteFilePath,
             tsconfig: tsconfigFilePath,
             type: "*",
             skipTypeCheck: skipTypeCheck ?? true,
             additionalProperties: additionalProperties ?? false,
-            sortProps: sortProps,
-            strictTuples: strictTuples,
-            encodeRefs: encodeRefs,
-            extraTags: extraTags
+            sortProps: sortProps ?? DEFAULT_CONFIG.sortProps,
+            strictTuples: strictTuples ?? DEFAULT_CONFIG.strictTuples,
+            encodeRefs: encodeRefs ?? DEFAULT_CONFIG.encodeRefs,
+            extraTags: extraTags ?? DEFAULT_CONFIG.extraTags
         };
         const generator = createGenerator(config);
         const schema = generator.createSchema(config.type);
