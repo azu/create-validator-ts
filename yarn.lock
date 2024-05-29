@@ -1273,7 +1273,7 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-ts-json-schema-generator@^2.0.1:
+ts-json-schema-generator@^2.1.1:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ts-json-schema-generator/-/ts-json-schema-generator-2.2.0.tgz#16a8ae87104d84be0c31b3d0b9e37e1190c8e6d7"
   integrity sha512-Fo9pcSb6PIvCSapoJR4VJlcCFC67d7yBWqbctNU6ShfXSMHItkjiLl3e9KGA1bu2S3jVYOFjUdPfWtfRdnMorA==
