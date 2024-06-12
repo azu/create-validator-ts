@@ -1273,10 +1273,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-ts-json-schema-generator@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ts-json-schema-generator/-/ts-json-schema-generator-2.2.0.tgz#16a8ae87104d84be0c31b3d0b9e37e1190c8e6d7"
-  integrity sha512-Fo9pcSb6PIvCSapoJR4VJlcCFC67d7yBWqbctNU6ShfXSMHItkjiLl3e9KGA1bu2S3jVYOFjUdPfWtfRdnMorA==
+ts-json-schema-generator@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/ts-json-schema-generator/-/ts-json-schema-generator-2.3.0.tgz#d533027cdb13b625acba0a3e931a4ba88f0e44ad"
+  integrity sha512-t4lBQAwZc0sOJq9LJt3NgbznIcslVnm0JeEMFq8qIRklpMRY8jlYD0YmnRWbqBKANxkby91P1XanSSlSOFpUmg==
   dependencies:
     "@types/json-schema" "^7.0.15"
     commander "^12.0.0"
