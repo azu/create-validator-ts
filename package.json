@@ -71,7 +71,7 @@
     "@file-cache/core": "^2.0.0",
     "@file-cache/npm": "^2.0.0",
     "glob-watcher": "^6.0.0",
-    "globby": "^14.0.1",
+    "globby": "^14.0.2",
     "meow": "^13.2.0",
     "ts-json-schema-generator": "^2.3.0"
   },
