@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/mocharc",
-  "loader": "tsimp/import",
+  "import": "tsx",
   "spec": [
     "test/**/*.ts"
   ],
