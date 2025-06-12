@@ -208,7 +208,7 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@types/node@^20.17.57":
+"@types/node@^20.17.58":
   version "20.19.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.19.0.tgz#7006b097b15dfea06695c3bbdba98b268797f65b"
   integrity sha512-hfrc+1tud1xcdVTABC2JiomZJEklMcXYNTVtZLAeqTVWD+qL5jkHKT+1lOtqDdGxt+mB53DTtiz673vfjU8D1Q==
