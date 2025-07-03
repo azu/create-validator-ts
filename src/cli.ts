@@ -77,7 +77,8 @@ export const cli = meow(
                 type: "boolean"
             },
             skipTypeCheck: {
-                type: "boolean"
+                type: "boolean",
+                default: true
             },
             encodeRefs: {
                 type: "boolean"
