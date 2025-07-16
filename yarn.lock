@@ -208,10 +208,10 @@
   dependencies:
     undici-types "~5.26.4"
 
-"@types/node@^20.19.4":
-  version "20.19.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.19.5.tgz#7b78c7c8c983e391c0597f9ef3a6c34f5de8c080"
-  integrity sha512-M4CtoNkoQrYOD7O80KM7DjGdzwMvoXZ12SGUbxc0X1AK6gfBKjkJswW/B4MyTPMIuU0sodukEgj8CzIJKEAQXQ==
+"@types/node@^20.19.6":
+  version "20.19.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.19.8.tgz#d4a81f631d9dc5015c6e608a102c83e19d03c9db"
+  integrity sha512-HzbgCY53T6bfu4tT7Aq3TvViJyHjLjPNaAS3HOuMc9pw97KHsUtXNX4L+wu59g1WnjsZSko35MbEqnO58rihhw==
   dependencies:
     undici-types "~6.21.0"
 
